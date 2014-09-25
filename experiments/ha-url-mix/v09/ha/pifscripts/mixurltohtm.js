@@ -44,7 +44,7 @@ function buildTranscriptSection(index, tid, stime, length, callback) {
 	console.log(document.location.hostname);
 	host = document.location.hostname;
 	if (host.indexOf('localhost') < 0) {
-		host = "http://"+host;
+		host = "http:/";
 	}
 
 	console.log("host = "+host);
