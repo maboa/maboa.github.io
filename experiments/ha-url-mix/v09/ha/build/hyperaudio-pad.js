@@ -9811,6 +9811,9 @@ var Transcript = (function(document, hyperaudio) {
 				}
 
 				this.target.addEventListener('click', function(event) {
+
+          console.log("word clicked");
+
 					event.preventDefault();
 					if(event.target.nodeName.toLowerCase() === opts.word) {
 						var tAttr = event.target.getAttribute(opts.timeAttr),
