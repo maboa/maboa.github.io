@@ -42,8 +42,12 @@ function buildTranscriptSection(index, tid, stime, length, callback) {
 
 	console.log("================== host ==================");
 	console.log(document.location.hostname);
+	host = document.location.hostname;
+	if (host.indexOf('localhost') < 0) {
+		host = "http://"+host;
+	}
 
-	$.get(document.location.hostname+"/maboa.github.io/experiments/ha-url-mix/transcripts/"+tid, function( transcript ) {
+	$.get(host+"/maboa.github.io/experiments/ha-url-mix/transcripts/"+tid, function( transcript ) {
 		var firstWord = 'a[data-m="'+stime+'"]';
 		var lastWord = 'a[data-m="'+etime+'"]';
 		var firstWordInTrans = $(firstWord,transcript);
