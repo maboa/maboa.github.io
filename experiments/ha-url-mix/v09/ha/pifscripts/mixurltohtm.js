@@ -40,6 +40,7 @@ function buildTranscriptSection(index, tid, stime, length, callback) {
 	console.log(element, tid, stime, etime);
 	console.log("etime="+etime);
 
+	console.log("================== host ==================");
 	console.log(document.location.hostname);
 
 	$.get(document.location.hostname+"/maboa.github.io/experiments/ha-url-mix/transcripts/"+tid, function( transcript ) {
