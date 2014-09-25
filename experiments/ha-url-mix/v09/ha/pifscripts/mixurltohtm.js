@@ -47,6 +47,8 @@ function buildTranscriptSection(index, tid, stime, length, callback) {
 		host = "http://"+host;
 	}
 
+	console.log("host = "+host);
+
 	$.get(host+"/maboa.github.io/experiments/ha-url-mix/transcripts/"+tid, function( transcript ) {
 		var firstWord = 'a[data-m="'+stime+'"]';
 		var lastWord = 'a[data-m="'+etime+'"]';
