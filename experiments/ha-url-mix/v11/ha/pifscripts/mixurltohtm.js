@@ -40,12 +40,11 @@ function buildTranscriptSection(index, tid, stime, length, callback) {
 	console.log(element, tid, stime, etime);
 	console.log("etime="+etime);
 
-
 	console.log("================== host ==================");
 	console.log(document.location.hostname);
 	host = document.location.hostname;
 	console.log(host.substr(0,1));
-	
+
 	// brittle test to see if running locally
 	if ((host.indexOf('localhost') < 0) && (host.substr(0,1) != "1")) {
 		console.log("adding http/");

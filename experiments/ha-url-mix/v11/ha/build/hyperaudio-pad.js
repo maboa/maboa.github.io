@@ -3094,7 +3094,10 @@
 
       // Browsers using flash will have the pause() call take too long and cause some
       // sound to leak out. Muting before to prevent this.
-      player.mute();
+      
+      // MB Test
+
+      //player.mute();
 
       // ensure we are muted.
       onMuted();
@@ -9811,6 +9814,9 @@ var Transcript = (function(document, hyperaudio) {
 				}
 
 				this.target.addEventListener('click', function(event) {
+
+          console.log("word clicked");
+
 					event.preventDefault();
 					if(event.target.nodeName.toLowerCase() === opts.word) {
 						var tAttr = event.target.getAttribute(opts.timeAttr),
