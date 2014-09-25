@@ -39,7 +39,19 @@ function buildTranscriptSection(index, tid, stime, length, callback) {
 	tid = tid + ".html";
 	console.log(element, tid, stime, etime);
 	console.log("etime="+etime);
-	$.get("/experiments/ha-url-mix/transcripts/"+tid, function( transcript ) {
+	
+	// brittle test to see if running locally
+	if ((host.indexOf('localhost') < 0) && (host.substr(0,1) != "1")) {
+		console.log("adding http/");
+		host = "http://";
+	} else {
+		host = "/";
+	}
+
+	console.log("host = "+host);
+
+
+	$.get(host+"maboa.github.io/experiments/ha-url-mix/transcripts/"+tid, function( transcript ) {
 		var firstWord = 'a[data-m="'+stime+'"]';
 		var lastWord = 'a[data-m="'+etime+'"]';
 		var firstWordInTrans = $(firstWord,transcript);
