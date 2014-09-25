@@ -3094,7 +3094,10 @@
 
       // Browsers using flash will have the pause() call take too long and cause some
       // sound to leak out. Muting before to prevent this.
-      player.mute();
+      
+      // MB Test
+
+      //player.mute();
 
       // ensure we are muted.
       onMuted();
