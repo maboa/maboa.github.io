@@ -143,6 +143,7 @@ function buildTimedEffect(index, duration, type, label, min) {
 //console.log("output:");
 //console.dir(output[0].outerHTML);
 
+
 var videoInfo = ['mnY0rynBSTM,107384621.mobile.mp4?s=80297e241df84e5eb0385c87304fb3c8','sI8R9B_caDY,107385223.mobile.mp4?s=8083e99329c10022f3c0f9ab4fdb065a','fJISrenMzws,107445262.mobile.mp4?s=2ada419278dc8fe349d47fbcbd2047f6'];
 
 //var videoInfo = ['mnY0rynBSTM,107384621.m3u8?p=standard*mobile&s=e4570b1860ec64fc4f1226e6612c1098','sI8R9B_caDY,107385223.mobile.mp4?s=8083e99329c10022f3c0f9ab4fdb065a','fJISrenMzws,107445262.mobile.mp4?s=2ada419278dc8fe349d47fbcbd2047f6'];
