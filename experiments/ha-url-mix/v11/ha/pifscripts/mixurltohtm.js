@@ -40,11 +40,12 @@ function buildTranscriptSection(index, tid, stime, length, callback) {
 	console.log(element, tid, stime, etime);
 	console.log("etime="+etime);
 
+
 	console.log("================== host ==================");
 	console.log(document.location.hostname);
 	host = document.location.hostname;
 	console.log(host.substr(0,1));
-
+	
 	// brittle test to see if running locally
 	if ((host.indexOf('localhost') < 0) && (host.substr(0,1) != "1")) {
 		console.log("adding http/");
@@ -80,6 +81,10 @@ function buildTranscriptSection(index, tid, stime, length, callback) {
   	console.log(videoInfo[parseInt(tid)]);
 
   	var ytid = videoInfo[parseInt(tid)].split(',')[0];
+  	var mp4id = videoInfo[parseInt(tid)].split(',')[1];
+  	console.log("mp4id = "+mp4id);
+  	//mp4id = mp4id.replace("*",",");
+  	//console.log("mp4id = "+mp4id);
 
   	// Viewer compatible
 
@@ -87,7 +92,10 @@ function buildTranscriptSection(index, tid, stime, length, callback) {
 
   	// Pad compatible
 
-		$('section:nth-child('+index+')',output).append(element[0].outerHTML).attr('data-unit','0.001').attr('data-yt','http://www.youtube.com/watch?v='+ytid).addClass('item');
+		//$('section:nth-child('+index+')',output).append(element[0].outerHTML).attr('data-unit','0.001').attr('data-yt','http://www.youtube.com/watch?v='+ytid).addClass('item');
+		$('section:nth-child('+index+')',output).append(element[0].outerHTML).attr('data-unit','0.001').attr('data-mp4','http://player.vimeo.com/external/'+mp4id).addClass('item');
+
+
 
 		$('p',output).attr('dir','auto');
 
@@ -135,7 +143,15 @@ function buildTimedEffect(index, duration, type, label, min) {
 //console.log("output:");
 //console.dir(output[0].outerHTML);
 
-var videoInfo = ['mnY0rynBSTM,95380113','sI8R9B_caDY,104899925','fJISrenMzws,39734142'];
+// Mobile Def
+
+//var videoInfo = ['mnY0rynBSTM,107384621.mobile.mp4?s=80297e241df84e5eb0385c87304fb3c8','sI8R9B_caDY,107385223.mobile.mp4?s=8083e99329c10022f3c0f9ab4fdb065a','fJISrenMzws,107445262.mobile.mp4?s=2ada419278dc8fe349d47fbcbd2047f6'];
+
+// Standard Def
+
+var videoInfo = ['mnY0rynBSTM,107384621.sd.mp4?s=e5897defe346e369a371c9cf7472bbbc','sI8R9B_caDY,107385223.sd.mp4?s=32dc543222b469777fdfe1b4ddcf1224','107445262.sd.mp4?s=3915b68806e4cca0f75f094236401a45'];
+
+//var videoInfo = ['mnY0rynBSTM,107384621.m3u8?p=standard*mobile&s=e4570b1860ec64fc4f1226e6612c1098','sI8R9B_caDY,107385223.mobile.mp4?s=8083e99329c10022f3c0f9ab4fdb065a','fJISrenMzws,107445262.mobile.mp4?s=2ada419278dc8fe349d47fbcbd2047f6'];
 
 var state = document.location.hash;
 console.log(state);
