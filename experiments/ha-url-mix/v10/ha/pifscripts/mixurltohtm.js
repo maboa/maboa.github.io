@@ -20,8 +20,12 @@ var output = $('<article style="transition-timing-function: cubic-bezier(0.1, 0.
 var mixHTML = "";
 
 function isSameParent(p1,p2) {
-	//Todo - find a better way to compare!
-	return (p1.html().substr(0,16) == p2.html().substr(0,16));
+	if (p1.html() == null || p2.html() == null) {
+		return true;
+	} else {
+		//Todo - find a better way to compare!
+		return (p1.html().substr(0,16) == p2.html().substr(0,16));
+	}
 }
 
 
@@ -78,6 +82,8 @@ function buildTranscriptSection(index, tid, stime, length, callback) {
   	}
 
   	console.log(videoInfo);
+  	console.log(tid);
+
   	console.log(videoInfo[parseInt(tid)]);
 
   	var ytid = videoInfo[parseInt(tid)].split(',')[0];
@@ -93,7 +99,7 @@ function buildTranscriptSection(index, tid, stime, length, callback) {
   	// Pad compatible
 
 		//$('section:nth-child('+index+')',output).append(element[0].outerHTML).attr('data-unit','0.001').attr('data-yt','http://www.youtube.com/watch?v='+ytid).addClass('item');
-		$('section:nth-child('+index+')',output).append(element[0].outerHTML).attr('data-unit','0.001').attr('data-mp4','http://player.vimeo.com/external/'+mp4id).addClass('item');
+		$('section:nth-child('+index+')',output).append(element[0].outerHTML).attr('data-unit','0.001').attr('data-mp4',mp4id).addClass('item');
 
 
 
@@ -144,7 +150,7 @@ function buildTimedEffect(index, duration, type, label, min) {
 //console.dir(output[0].outerHTML);
 
 
-var videoInfo = ['mnY0rynBSTM,107384621.mobile.mp4?s=80297e241df84e5eb0385c87304fb3c8','sI8R9B_caDY,107385223.mobile.mp4?s=8083e99329c10022f3c0f9ab4fdb065a','fJISrenMzws,107445262.mobile.mp4?s=2ada419278dc8fe349d47fbcbd2047f6'];
+var videoInfo = ['http://www.youtube.com/watch?v=mnY0rynBSTM,http://player.vimeo.com/external/107384621.mobile.mp4?s=80297e241df84e5eb0385c87304fb3c8','http://www.youtube.com/watch?v=sI8R9B_caDY,http://player.vimeo.com/external/107385223.mobile.mp4?s=8083e99329c10022f3c0f9ab4fdb065a','http://www.youtube.com/watch?v=fJISrenMzws,http://player.vimeo.com/external/107445262.mobile.mp4?s=2ada419278dc8fe349d47fbcbd2047f6','http://www.jplayer.org/video/m4v/Big_Buck_Bunny_Trailer.m4v,http://www.jplayer.org/video/m4v/Big_Buck_Bunny_Trailer.m4v'];
 
 //var videoInfo = ['mnY0rynBSTM,107384621.m3u8?p=standard*mobile&s=e4570b1860ec64fc4f1226e6612c1098','sI8R9B_caDY,107385223.mobile.mp4?s=8083e99329c10022f3c0f9ab4fdb065a','fJISrenMzws,107445262.mobile.mp4?s=2ada419278dc8fe349d47fbcbd2047f6'];
 
