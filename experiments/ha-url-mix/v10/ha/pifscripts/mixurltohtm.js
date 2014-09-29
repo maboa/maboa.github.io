@@ -81,6 +81,7 @@ function buildTranscriptSection(index, tid, stime, length, callback) {
   	console.log(videoInfo[parseInt(tid)]);
 
   	var ytid = videoInfo[parseInt(tid)].split(',')[0];
+  	var mp4id = videoInfo[parseInt(tid)].split(',')[1];
 
   	// Viewer compatible
 
@@ -88,7 +89,10 @@ function buildTranscriptSection(index, tid, stime, length, callback) {
 
   	// Pad compatible
 
-		$('section:nth-child('+index+')',output).append(element[0].outerHTML).attr('data-unit','0.001').attr('data-yt','http://www.youtube.com/watch?v='+ytid).addClass('item');
+		//$('section:nth-child('+index+')',output).append(element[0].outerHTML).attr('data-unit','0.001').attr('data-yt','http://www.youtube.com/watch?v='+ytid).addClass('item');
+		$('section:nth-child('+index+')',output).append(element[0].outerHTML).attr('data-unit','0.001').attr('data-mp4','http://player.vimeo.com/external/'+mp4id).addClass('item');
+
+
 
 		$('p',output).attr('dir','auto');
 
@@ -136,7 +140,7 @@ function buildTimedEffect(index, duration, type, label, min) {
 //console.log("output:");
 //console.dir(output[0].outerHTML);
 
-var videoInfo = ['mnY0rynBSTM,95380113','sI8R9B_caDY,104899925','fJISrenMzws,39734142'];
+var videoInfo = ['mnY0rynBSTM,107384621.mobile.mp4?s=80297e241df84e5eb0385c87304fb3c8','sI8R9B_caDY,107384621.mobile.mp4?s=80297e241df84e5eb0385c87304fb3c8','fJISrenMzws,107385223.mobile.mp4?s=8083e99329c10022f3c0f9ab4fdb065a'];
 
 var state = document.location.hash;
 console.log(state);
