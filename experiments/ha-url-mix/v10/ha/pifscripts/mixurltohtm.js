@@ -3,6 +3,8 @@
 
 // #/t:Test%20Max,1,1.2/0:2150,4210/r:1/t:And%20Now%20For%20Something...,0,2/1:23500,5310/f:1/2:3126,7334
 
+var mixHTML = "";
+
 
 
 console.log("ABOUT TO EXTRACT!");
@@ -17,7 +19,7 @@ var transcript = null;
 
 var output = $('<article style="transition-timing-function: cubic-bezier(0.1, 0.57, 0.1, 1); transition-duration: 0ms; transform: translate(0px, -349px) translateZ(0px);"></article>');
 
-var mixHTML = "";
+
 
 function isSameParent(p1,p2) {
 	if (p1.html() == null || p2.html() == null) {
@@ -214,8 +216,11 @@ for (var i=0; i < params.length; i++) {
 	}
 }//loop
 
+console.log("document ready");
+
 q.awaitAll(function() {
 
+	console.log("fragments loaded");
 	mixHTML = output[0].outerHTML;
 
 	// Alpha style cleanup of spurious empty paras
@@ -226,18 +231,18 @@ q.awaitAll(function() {
 	console.log(mixHTML);
 	console.log("++++++++++++++++++++++++++++++++++++++++++");*/
 
-	initialise();
+	console.log("viewer wrapper");
+
+	console.log($('#viewer-wrapper').length);
+
+	if ($('#viewer-wrapper').length) {
+	  HAP.init({
+			viewer: true,
+			origin: 'Viewer',
+			editBtn: '#edit',
+			shareBtn: '#share'
+		});
+	} else {
+		HAP.init();
+	}
 });
-
-function initialise() {
-	console.log("+++++++++++++++++++++++ INITILIASING HAP +++++++++++++++++++++");
-  console.log(mixHTML);
-
-  HAP.init({
-	viewer: true,
-	origin: 'Viewer',
-	editBtn: '#edit',
-	shareBtn: '#share'
-	});
-}
-

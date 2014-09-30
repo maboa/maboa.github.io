@@ -11946,6 +11946,7 @@ HAP = (function (window, document, HA) {
     console.dir(this.options);
 
     if(this.options.viewer) {
+      console.log("this.options.targetViewer = "+this.options.targetViewer);
       var viewer = document.querySelector(this.options.targetViewer);
       var video = document.createElement('div');
       var text = document.createElement('div');
