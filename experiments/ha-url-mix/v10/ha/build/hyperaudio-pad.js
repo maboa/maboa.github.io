@@ -92,6 +92,7 @@
   //  Returns an instance object.
   Popcorn = function( entity, options ) {
     //  Return new Popcorn object
+    console.log('returning popcorn object');
     return new Popcorn.p.init( entity, options || null );
   };
 
@@ -226,6 +227,8 @@
 
       //  function to fire when video is ready
       var isReady = function() {
+
+        console.log("popcorn isReady");
 
         // chrome bug: http://code.google.com/p/chromium/issues/detail?id=119598
         // it is possible the video's time is less than 0
