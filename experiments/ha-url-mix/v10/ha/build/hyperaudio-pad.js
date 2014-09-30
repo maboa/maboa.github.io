@@ -3081,6 +3081,7 @@
 
     function onPlayerReady( event ) {
 
+
       var onMuted = function() {
         if ( player.isMuted() ) {
           // force an initial play on the video, to remove autostart on initial seekTo.
@@ -3531,6 +3532,7 @@
     };
 
     function onEnded() {
+      console.log("-=-=-=-=-=-=-=--- ended event detected --=-=-=-=-=-=-=-=");
       if( impl.loop ) {
         changeCurrentTime( 0 );
         self.play();
@@ -9110,6 +9112,10 @@ var Player = (function(window, document, hyperaudio, Popcorn) {
     },
 
     updateSolution: function() {
+
+      // MB debug
+
+      console.log("-=-=-=-=-=-=- update the solution =-=-=-=-=-=--=-=");
       var wrapper = this.wrapper,
         cssClass = this.options.solutionClass;
 
