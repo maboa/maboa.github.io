@@ -9216,7 +9216,9 @@ var Player = (function(window, document, hyperaudio, Popcorn) {
     initPopcorn: function() {
       console.log("====== init popcorn 2 =======");
       this.killPopcorn();
+      console.log("====== popcorn killed =======");
       this.popcorn = Popcorn(this.videoElem);
+      console.log("======= out the other side =====");
     },
     killPopcorn: function() {
       if(this.popcorn) {
