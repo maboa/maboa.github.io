@@ -235,6 +235,10 @@
         // this has the potential to call track events more than once, when they should not
         // start: 0, end: 1 will start, end, start again, when it should just start
         // just setting it to 0 if it is below 0 fixes this issue
+
+
+        console.log("self.media.currentTime = "+self.media.currentTime);
+
         if ( self.media.currentTime < 0 ) {
 
           self.media.currentTime = 0;
@@ -248,6 +252,8 @@
         //  Adding padding to the front and end of the arrays
         //  this is so we do not fall off either end
         duration = self.media.duration;
+
+        console.log("self.media.duration = "+self.media.duration);
 
         //  Check for no duration info (NaN)
         videoDurationPlus = duration != duration ? Number.MAX_VALUE : duration + 1;
