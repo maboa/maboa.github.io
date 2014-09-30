@@ -8851,6 +8851,7 @@ var Music = (function(window, document, hyperaudio, Popcorn) {
       }
     },
     initPopcorn: function() {
+      console.log("--=-=-=-=- init popcorn -=-=-=-=-=-=-=");
       this.killPopcorn();
       this.popcorn = Popcorn(this.audioElem);
     },
@@ -10521,6 +10522,7 @@ var Projector = (function(window, document, hyperaudio, Popcorn) {
 
     },
     initPopcorn: function(index, player) {
+      console.log("=-=-=-=-=-=- the real initpopcorn -=-=-=-=-=-=-=--=");
       var self = this;
       var elems, e, eLen;
       var onNewPara = function(parent) {
