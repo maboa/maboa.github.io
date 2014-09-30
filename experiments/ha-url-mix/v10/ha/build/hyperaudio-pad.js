@@ -8805,6 +8805,11 @@ var Music = (function(window, document, hyperaudio, Popcorn) {
     },
 
     load: function(media) {
+
+      // MB Debug
+
+      console.log("-=-=-=-=-=-=-= load =-=-=-=-=-=-=-");
+
       var self = this,
         newMedia = this.mediaDiff(media);
 
@@ -8868,6 +8873,8 @@ var Music = (function(window, document, hyperaudio, Popcorn) {
       this.currentTime(time);
     },
     currentTime: function(time, play) {
+
+      console.log("--------------- currentTime --------------------");
       var self = this,
         media = this.audioElem;
 
@@ -8903,6 +8910,8 @@ var Music = (function(window, document, hyperaudio, Popcorn) {
       }
     },
     manager: function(audioElem, event) {
+
+      console.log("-------------  manager --------------");
       var self = this;
 
       this.paused = audioElem.paused;
@@ -9125,6 +9134,10 @@ var Player = (function(window, document, hyperaudio, Popcorn) {
     },
 
     load: function(media) {
+
+      //MB Debug
+      console.log("-=-=-=-=--=-=-=-=-=-=-= load: function(media) -=-=-=-=-=-=-==-==--=-=-=-");
+
       var self = this,
         newMedia = this.mediaDiff(media);
 
@@ -9135,6 +9148,8 @@ var Player = (function(window, document, hyperaudio, Popcorn) {
       if(this.target) {
 
         if(newMedia) {
+
+          console.log("==-=-=-=-=-=-=-=-=-=-=-=-=-=- newMedia -=-=-==-=-=-=-=-=-=-=-=-=-=-");
 
           this.pause(); // Pause the player, otherwise switching solution may leave 1 playing while hidden.
 
@@ -9169,8 +9184,10 @@ var Player = (function(window, document, hyperaudio, Popcorn) {
                 }
 
                 var source = document.createElement('source');
+                console.log("setting the source ....");
                 source.setAttribute('type', self.options.mediaType[format]);
                 source.setAttribute('src', url); // Could use 'this' but less easy to read.
+                console.log("src url = "+url);
                 self.solution.html.appendChild(source);
               }
             });
@@ -10610,6 +10627,13 @@ var Projector = (function(window, document, hyperaudio, Popcorn) {
     },
 
     cue: function(play, jumpTo) {
+
+      // MB DEBUG
+
+      console.log("------------ cue --------------");
+      console.log("play = "+play);
+      console.log("jumpTo = "+play);
+
       var i, iLen, elems, e, eLen;
 /*
       var onNewPara = function(parent) {
@@ -10870,6 +10894,10 @@ var Projector = (function(window, document, hyperaudio, Popcorn) {
     },
 
     getContent: function() {
+
+      // MB DEBUG
+
+      console.log("-------------- In getContent --------------");
 
       var effect = [],
         searching = true,
