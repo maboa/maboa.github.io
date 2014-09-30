@@ -9205,6 +9205,8 @@ var Player = (function(window, document, hyperaudio, Popcorn) {
             this.updateSolution();
           }
 
+          console.log("-=--=-=- about to init popcorn =-=-=-=-=-=-");
+
           this.initPopcorn();
         }
       } else {
@@ -9212,6 +9214,7 @@ var Player = (function(window, document, hyperaudio, Popcorn) {
       }
     },
     initPopcorn: function() {
+      console.log("====== init popcorn 2 =======");
       this.killPopcorn();
       this.popcorn = Popcorn(this.videoElem);
     },
